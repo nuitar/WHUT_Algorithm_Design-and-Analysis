@@ -1,0 +1,4 @@
+﻿D:\编程\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(数据结构与算法实验.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  算法设计与分析.cpp
+E:\桌面\算法设计与分析\数据结构与算法实验\算法设计与分析.cpp(80,23): warning C4018: “<”: 有符号/无符号不匹配
+  数据结构与算法实验.vcxproj -> E:\桌面\算法设计与分析\数据结构与算法实验\Debug\算法设计与分析.exe
