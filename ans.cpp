@@ -7,7 +7,7 @@ class solution
 public:
     void grayCode()
     {
-        // 输入样例
+        // 输入样例 
         int n, size;
         std::cin >> n;
         size = 1 << n;
