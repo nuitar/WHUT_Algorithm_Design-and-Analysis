@@ -5,53 +5,53 @@
 class solution
 {
 public:
-    void grayCode()
-    {
-        // 输入样例 
-        int n, size;
-        std::cin >> n;
-        size = 1 << n;
-        std::string str;
-        std::vector<std::string> ans;
-        for (int i = 0; i < n; i++)
-            str += '0';
-        std::function<void(bool)> f = [&](bool flag)
-        {
-            if (ans.size() == size)
-                return;
-            ans.push_back(str);
-            int pos = flag == 0 ? n - 1 : str.rfind('1') - 1;
-            str[pos] = str[pos] == '0' ? '1' : '0';
-            f(!flag);
-        };
+	void grayCode()
+	{
+		// 输入样例 
+		int n, size;
+		std::cin >> n;
+		size = 1 << n;
+		std::string str;
+		std::vector<std::string> ans;
+		for (int i = 0; i < n; i++)
+			str += '0';
+		std::function<void(bool)> f = [&](bool flag)
+		{
+			if (ans.size() == size)
+				return;
+			ans.push_back(str);
+			int pos = flag == 0 ? n - 1 : str.rfind('1') - 1;
+			str[pos] = str[pos] == '0' ? '1' : '0';
+			f(!flag);
+		};
 
-        f(0);
-        for (std::string code : ans)
-            std::cout << code << std::endl;
-    }
+		f(0);
+		for (std::string code : ans)
+			std::cout << code << std::endl;
+	}
 
-    void hireShip()
-    {
-        int n;
-        std::cin >> n;
-        std::vector<std::vector<int>> hireMoney(n, std::vector<int>(n + 1, 0));
-        for (int i = 1; i < n; i++)
-        {
-            for (int j = i + 1; j <= n; j++)
-                std::cin >> hireMoney[i][j];
-        }
+	void hireShip()
+	{
+		int n;
+		std::cin >> n;
+		std::vector<std::vector<int>> hireMoney(n, std::vector<int>(n + 1, 0));
+		for (int i = 1; i < n; i++)
+		{
+			for (int j = i + 1; j <= n; j++)
+				std::cin >> hireMoney[i][j];
+		}
 
-        std::vector<int> dp(n + 1, 0);
-        dp = hireMoney[1]; // dp表示前i站到j站的最小花费
-        for (int i = 2; i < n; i++)
-        {
-            for (int j = n; j > i; j--)
-                dp[j] = std::min(dp[j], dp[j - 1] + hireMoney[i][j]);
-        }
-        std::cout << dp[n];
-    }
-    
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+		std::vector<int> dp(n + 1, 0);
+		dp = hireMoney[1]; // dp表示前i站到j站的最小花费
+		for (int i = 2; i < n; i++)
+		{
+			for (int j = n; j > i; j--)
+				dp[j] = std::min(dp[j], dp[j - 1] + hireMoney[i][j]);
+		}
+		std::cout << dp[n];
+	}
+
+	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
 		int n = nums1.size(), m = nums2.size();
 		int k1 = (n + m + 1) / 2, k2 = (n + m + 2) / 2;
 		double ans = back(nums1, 0, n - 1, nums2, 0, m - 1, k1) + back(nums1, 0, n - 1, nums2, 0, m - 1, k2);
@@ -73,7 +73,7 @@ public:
 		else
 			return back(nums1, i + 1, end1, nums2, start2, end2, k - (i - start1 + 1));
 	}
-    
+
 	void maxK_multiple() {
 		int n, k;
 		string str;
@@ -96,6 +96,7 @@ public:
 		cout << dp[n][k];
 	}
 };
+
 
 int main()
 {
